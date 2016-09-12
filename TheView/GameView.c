@@ -5,11 +5,23 @@
 #include "Globals.h"
 #include "Game.h"
 #include "GameView.h"
-// #include "Map.h" ... if you decide to use the Map ADT
+#include "Map.h" //if you decide to use the Map ADT
+  
+struct _Player {
+   PlayerID playerId;
+   int health;
+   int location;
+   int trail[TRAIL_SIZE];
+   int 
+} Player;  
+  
      
 struct gameView {
     //REPLACE THIS WITH YOUR OWN IMPLEMENTATION
-    int hello;
+    PlayerID currentTurn;
+    Round roundNumber;
+    int score;
+    Player players[NUM_PLAYERS];
 };
      
 
