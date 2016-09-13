@@ -21,6 +21,7 @@ struct gameView {
     Round roundNumber;
     int score;
     Player players[NUM_PLAYERS];
+    Map europe;
 };
      
 
