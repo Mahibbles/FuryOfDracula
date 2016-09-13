@@ -23,13 +23,38 @@ struct gameView {
     Player players[NUM_PLAYERS];
 };
      
+static void initialiseGameView(GameView newView)
+{
+    //set up general information
+    newView->currentTurn=//Check this
+    newView->roundNumber=//Check this
+    newView->score=GAME_START_SCORE;
+    newView->europe=newMap();
+    //set up player information
+    PlayerID user;
+    for (user=PLAYER_LORD_GODALMING; user<NUM_PLAYERS;user++){
+        newView->players[user].playerID=user;
+        if(user==PLAYER_DRACULA){
+           newView->players[user].health=GAME_START_BLOOD_POINTS;    
+        }else{
+           newView->players[user].health=GAME_START_HUNTER_LIFE_POINTS;
+        }
+        newView->players[user].location=//Check this
+        int i;
+        for(i=0; i<TRAIL_SIZE;i++){
+            newView->players[user].trail[i]=UNKNOWN_LOCATION;
+        }
+    }
+}
 
 // Creates a new GameView to summarise the current state of the game
 GameView newGameView(char *pastPlays, PlayerMessage messages[])
 {
     //REPLACE THIS WITH YOUR OWN IMPLEMENTATION
-    GameView gameView = malloc(sizeof(struct gameView));
-    gameView->hello = 42;
+    //calloc gameView with all empty spots
+    GameView gameView = calloc(sizeof(struct gameView));
+    //define initial state
+    initialiseGameView(gameView);
     return gameView;
 }
      
